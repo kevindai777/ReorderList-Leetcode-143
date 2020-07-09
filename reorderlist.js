@@ -44,6 +44,7 @@ function reorderList(head) {
     let slow = head
     let fast = head
     
+    //Find the middle node
     while (fast && fast.next) {
         slow = slow.next 
         fast = fast.next.next
@@ -52,6 +53,7 @@ function reorderList(head) {
     let prev = null
     let curr = slow
     
+    //Reverse second half of list
     while (curr) {
         let temp = curr.next 
         curr.next = prev 
@@ -59,9 +61,11 @@ function reorderList(head) {
         curr = temp
     }
     
+    //Get the heads of the two lists to merge
     let first = head
     let second = prev
     
+    //Since second is always ahead
     while (second.next) {
         let temp = first.next 
         first.next = second
@@ -73,5 +77,3 @@ function reorderList(head) {
     }
 }
 reorderList(head)
-
-console.log(head)
